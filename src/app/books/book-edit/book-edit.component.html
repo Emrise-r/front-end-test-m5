@@ -1,4 +1,4 @@
-<h1>Tạo mới sách</h1>
+<h1>Edit Book</h1>
 <h2 style="color: brown">{{message}}</h2>
 <form [formGroup]= "editBookForm" >
   <div class="form-group">
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Mô tả</label>
-      <textarea class="form-control " formControlName="description" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mô tả" rows="4" cols="50"></textarea>
+      <textarea class="form-control " formControlName="description" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mô tả" rows="10" cols="5"></textarea>
       <div *ngIf="description.invalid && (description.dirty || description.touched)"
            class="alert alert-danger">
         <div *ngIf="description.errors.required">
