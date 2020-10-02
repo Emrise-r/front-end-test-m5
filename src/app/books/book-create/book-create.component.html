@@ -1,0 +1,45 @@
+<h1>Tạo mới sách</h1>
+<h2 style="color: brown">{{message}}</h2>
+<form [formGroup]=" addBookForm" >
+  <div class="form-group">
+    <label>Tiêu đề</label>
+    <input type="text" class="form-control" formControlName="title" placeholder="Tiêu đề">
+    <div *ngIf="title.invalid && (title.dirty || title.touched)"
+         class="alert alert-danger">
+      <div *ngIf="title.errors.required">
+        Tieu de khong duoc de trong
+      </div>
+      <div *ngIf="title.errors.maxLength">
+        Tiêu đề chỉ có dưới 30 ký tự
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Tác giả</label>
+      <input type="text" class="form-control" formControlName="author"  placeholder="Tên tác giả">
+      <div *ngIf="author.invalid && (author.dirty || author.touched)"
+           class="alert alert-danger">
+        <div *ngIf="author.errors.required">
+          Tac gia khong duoc de trong
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Mô tả</label>
+      <textarea class="form-control " formControlName="description" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mô tả" rows="4" cols="5"></textarea>
+      <div *ngIf="description.invalid && (description.dirty || description.touched)"
+           class="alert alert-danger">
+        <div *ngIf="description.errors.required">
+          Cần phải thêm mô tả
+        </div>
+        <div *ngIf="description.errors.minLength">
+          Phai viet it nhat 20 ki tu
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button type="submit" [disabled]="addBookForm.invalid" class="btn btn-primary" (click)="submit()">Submit</button>
+  <button  class="btn btn-success" routerLink="">Thoat</button>
+</form>
+
